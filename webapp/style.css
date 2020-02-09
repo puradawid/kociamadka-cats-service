@@ -1,0 +1,7 @@
+.cats {
+    padding-top: 2rem;
+}
+
+.cats > .panel > .panel-body {
+    padding: 0;
+}

@@ -25,6 +25,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         Cats cats = repository.getAllCats();
         headers.put("Content-Type", "application/json");
         headers.put("X-Custom-Header", "application/json");
+        headers.put("access-control-allow-origin", "*");
         return new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200).withBody(cats.toString());
     }
 }

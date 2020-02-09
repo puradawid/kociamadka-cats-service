@@ -1,29 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import Data from './data'
 
 class Cats extends React.Component {
   constructor(props) {
     super();
 
-    this.renderedCats = props.cats.map(x => <div className="cat">
-      <div className="name">{x.name}</div>
-      <img src={x.imageUrl} />
+    this.renderedCats = props.cats.map(x => <div className="col-md-3 cats">
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title">{x.name}</h3>
+        </div>
+        <div className="panel-body">
+          <img className="img-responsive" src={x.imageUrl} />
+        </div>
+      </div>
     </div>);
   }
 
   render() {
-    return <div className="cats">
+    return <div className="row">
       {this.renderedCats}
       </div>;
   }
 }
 
 export default Cats;
-
-const wrapper = document.getElementById("catsContainer");
-const data = new Data();
-data.loadData((cats) => {
-  wrapper ? ReactDOM.render(<Cats cats={cats}/>, wrapper) : false;
-});

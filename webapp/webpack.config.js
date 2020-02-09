@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: path.resolve(__dirname, "component.jsx"),
+  entry: path.resolve(__dirname, "Boot.jsx"),
   devtool: 'source-map',
   module: {
     rules: [{
@@ -11,6 +11,11 @@ module.exports = {
       use: {
         loader: 'babel-loader'
       }
+    }, {
+      test: /\.css$/,
+      use: [
+        'css-loader'
+      ]
     }]
   }
 };
